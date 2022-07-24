@@ -5,8 +5,8 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp
     sensor_msgs
     std_msgs
-    # cv_bridge
-    # image_transport
+    cv_bridge
+    image_transport
     pluginlib
     nodelet
     # camera_apps_msgs
@@ -23,7 +23,7 @@ catkin_package(
 
 include_directories(
     include
-    # ${OpenCV_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS}
     ${catkin_INCLUDE_DIRS}
 )
 
@@ -31,11 +31,11 @@ add_executable(image_separater_node src/image_separater_node.cpp src/image_separ
 add_dependencies(image_separater_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(
     image_separater_node
-    # ${OpenCV_LIBRARIES}
+    ${OpenCV_LIBRARIES}
     ${catkin_LIBRARIES}
     )
 add_library(image_separater_nodelet src/image_separater.cpp src/image_separater_nodelet.cpp)
 target_link_libraries(image_separater_nodelet
-    # ${OpenCV_LIBRARIES}
+    ${OpenCV_LIBRARIES}
     ${catkin_LIBRARIES}
 )

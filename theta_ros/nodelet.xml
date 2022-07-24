@@ -1,9 +1,9 @@
-<library path="lib/libyolov5_nodelet">
-    <class name="camera_apps/Yolov5Nodelet"
-      type="camera_apps::Yolov5Nodelet"
+<library path="lib/libimage_separater_nodelet">
+    <class name="theta_ros/ImageSeparaterNodelet"
+      type="theta_ros::ImageSeparaterNodelet"
      base_class_type="nodelet::Nodelet">
     <description>
-        Yolov5Nodelet.
+        ImageSeparaterNodelet.
     </description>
   </class>
 </library>
