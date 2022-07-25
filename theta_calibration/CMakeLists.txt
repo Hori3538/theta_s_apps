@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.1)
+project(theta_calibration)
+find_package( OpenCV REQUIRED )
+add_executable(calibration.out src/calibration.cpp)
+target_link_libraries(calibration.out ${OpenCV_LIBS} stdc++fs)

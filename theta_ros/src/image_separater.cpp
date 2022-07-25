@@ -46,7 +46,32 @@ namespace theta_ros
         cv::rotate(splitted_image2, splitted_image2, cv::ROTATE_90_COUNTERCLOCKWISE);
 
         cv::imshow("splitted_image1", splitted_image1);
-        cv::waitKey(5);
+        // calib用画像を作るとき用の処理
+        static int image_id = 0;
+        std::ostringstream oss;
+
+        const char *tmp = getenv("HOME");
+        std::string env_var(tmp ? tmp : "");
+        if (env_var.empty()) {
+            std::cerr << "[ERROR] No such variable found!" << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+        std::string preserve_dir = env_var + "/theta_calibration/img/";
+        int key = cv::waitKey(5);
+        if(key == 'r'){
+            oss << image_id;
+            std::string file_name = preserve_dir + oss.str() + ".jpg";
+            bool success_flag = cv::imwrite(file_name, splitted_image1);
+            if(success_flag){
+                ROS_INFO("save image id: %i", image_id);
+                image_id++;
+            }
+            else{
+                ROS_INFO("can not save image id: %i", image_id);
+            }
+            
+        }
         // cv::imshow("splitted_image2", splitted_image2);
         // cv::waitKey();
     }
