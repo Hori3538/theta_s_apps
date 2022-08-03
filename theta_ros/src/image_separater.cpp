@@ -32,8 +32,8 @@ namespace theta_ros
     void ImageSeparater::split_image(cv::Mat& origin_image, cv::Mat& splitted_image1,
             cv::Mat& splitted_image2)
     {
-        // cv::imshow("origin_image", origin_image);
-        // cv::waitKey();
+        cv::imshow("origin_image", origin_image);
+        cv::waitKey();
         int height = origin_image.rows;
         int width = origin_image.cols/2;
 
@@ -58,22 +58,23 @@ namespace theta_ros
         }
 
         std::string preserve_dir = env_var + "/theta_calibration/img/";
-        int key = cv::waitKey(5);
-        if(key == 'r'){
-            oss << image_id;
-            std::string file_name = preserve_dir + oss.str() + ".jpg";
-            bool success_flag = cv::imwrite(file_name, splitted_image1);
-            if(success_flag){
-                ROS_INFO("save image id: %i", image_id);
-                image_id++;
-            }
-            else{
-                ROS_INFO("can not save image id: %i", image_id);
-            }
-            
-        }
-        // cv::imshow("splitted_image2", splitted_image2);
-        // cv::waitKey();
+        // int key = cv::waitKey(5);
+        int key = cv::waitKey();
+        // if(key == 'r'){
+        //     oss << image_id;
+        //     std::string file_name = preserve_dir + oss.str() + ".jpg";
+        //     bool success_flag = cv::imwrite(file_name, splitted_image1);
+        //     if(success_flag){
+        //         ROS_INFO("save image id: %i", image_id);
+        //         image_id++;
+        //     }
+        //     else{
+        //         ROS_INFO("can not save image id: %i", image_id);
+        //     }
+        //     
+        // }
+        cv::imshow("splitted_image2", splitted_image2);
+        cv::waitKey();
     }
 
 }

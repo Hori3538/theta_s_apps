@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(theta_ros)
-
+SET(CMAKE_CXX_FLAGS "-std=c++17 -O2 -g -Wall ${CMAKE_CXX_FLAGS}")
 find_package(catkin REQUIRED COMPONENTS
     roscpp
     sensor_msgs
@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
     pluginlib
     nodelet
     # camera_apps_msgs
-    # pcl_ros
+    pcl_ros
     # eigen_conversions
 )
 
@@ -36,6 +36,19 @@ target_link_libraries(
     )
 add_library(image_separater_nodelet src/image_separater.cpp src/image_separater_nodelet.cpp)
 target_link_libraries(image_separater_nodelet
+    ${OpenCV_LIBRARIES}
+    ${catkin_LIBRARIES}
+)
+
+add_executable(image_to_pointcloud_node src/image_to_pointcloud_node.cpp src/image_to_pointcloud.cpp)
+add_dependencies(image_to_pointcloud_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(
+    image_to_pointcloud_node
+    ${OpenCV_LIBRARIES}
+    ${catkin_LIBRARIES}
+    )
+add_library(image_to_pointcloud_nodelet src/image_to_pointcloud.cpp src/image_to_pointcloud_nodelet.cpp)
+target_link_libraries(image_to_pointcloud_nodelet
     ${OpenCV_LIBRARIES}
     ${catkin_LIBRARIES}
 )

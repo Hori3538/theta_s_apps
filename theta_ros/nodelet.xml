@@ -7,3 +7,13 @@
     </description>
   </class>
 </library>
+
+<library path="lib/libimage_to_pointcloud_nodelet">
+    <class name="theta_ros/ImageToPointcloudNodelet"
+      type="theta_ros::ImageToPointcloudNodelet"
+     base_class_type="nodelet::Nodelet">
+    <description>
+        ImageToPointcloudNodelet.
+    </description>
+  </class>
+</library>

@@ -5,12 +5,12 @@
   <node pkg="nodelet" type="nodelet" name="$(arg manager_name)" args="manager" output="screen">
   </node>
 
-  <node pkg="nodelet" type="nodelet" name="image_separater_nodelet"
-      args="load theta_ros/ImageSeparaterNodelet $(arg manager_name)" >
-  <param name="model_path" value="$(find theta_ros)/model/image_separater" />
-    <rosparam file="$(find theta_ros)/config/param/image_separater.yaml" command="load"/>
+  <node pkg="nodelet" type="nodelet" name="image_to_pointcloud_nodelet"
+      args="load theta_ros/ImageToPointcloudNodelet $(arg manager_name)" >
+  <param name="model_path" value="$(find theta_ros)/model/image_to_pointcloud" />
+    <rosparam file="$(find theta_ros)/config/param/image_to_pointcloud.yaml" command="load"/>
   </node>    
-  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find theta_ros)/config/rviz/image_separater.rviz" output="screen"/>
+  <!-- <node pkg="rviz" name="rviz" type="rviz" args="-d $(find theta_ros)/config/rviz/image_to_pointcloud.rviz" output="screen"/> -->
 
   <!-- <node name="image_republish" pkg="image_transport" type="republish" args="compressed raw"> -->
   <!--     <remap from="in" to="/camera/color/image_raw/" /> -->
