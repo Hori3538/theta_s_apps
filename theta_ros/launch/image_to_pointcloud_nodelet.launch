@@ -10,7 +10,7 @@
   <param name="model_path" value="$(find theta_ros)/model/image_to_pointcloud" />
     <rosparam file="$(find theta_ros)/config/param/image_to_pointcloud.yaml" command="load"/>
   </node>    
-  <!-- <node pkg="rviz" name="rviz" type="rviz" args="-d $(find theta_ros)/config/rviz/image_to_pointcloud.rviz" output="screen"/> -->
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find theta_ros)/config/rviz/image_to_pointcloud.rviz" output="screen"/>
 
   <!-- <node name="image_republish" pkg="image_transport" type="republish" args="compressed raw"> -->
   <!--     <remap from="in" to="/camera/color/image_raw/" /> -->

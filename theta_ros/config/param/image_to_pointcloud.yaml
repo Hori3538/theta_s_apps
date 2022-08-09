@@ -1,2 +1,4 @@
 equirectangular_topic_name: /equirectangular/image_raw
 depth_topic_name: /depth_image
+# pc_frame_name: theta_frame
+pc_frame_name: camera_fixed_frame

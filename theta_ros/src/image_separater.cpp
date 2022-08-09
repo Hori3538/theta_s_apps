@@ -20,9 +20,6 @@ namespace theta_ros
 
             cv::Mat splitted_image1, splitted_image2;
             split_image(input_image_, splitted_image1, splitted_image2);
-
-            // cv::imshow("theta_image", input_image_);
-            // cv::waitKey();
         }
         catch(cv_bridge::Exception &e){
             ROS_ERROR("cv_bridge exception: %s", e.what());
