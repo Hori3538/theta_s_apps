@@ -17,3 +17,13 @@
     </description>
   </class>
 </library>
+
+<library path="lib/libreference_point_setter_nodelet">
+    <class name="theta_ros/ReferencePointSetterNodelet"
+      type="theta_ros::ReferencePointSetterNodelet"
+     base_class_type="nodelet::Nodelet">
+    <description>
+        ReferencePointSetterNodelet.
+    </description>
+  </class>
+</library>

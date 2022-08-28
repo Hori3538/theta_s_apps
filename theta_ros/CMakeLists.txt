@@ -52,3 +52,16 @@ target_link_libraries(image_to_pointcloud_nodelet
     ${OpenCV_LIBRARIES}
     ${catkin_LIBRARIES}
 )
+
+add_executable(reference_point_setter_node src/reference_point_setter_node.cpp src/reference_point_setter.cpp)
+add_dependencies(reference_point_setter_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(
+    reference_point_setter_node
+    ${OpenCV_LIBRARIES}
+    ${catkin_LIBRARIES}
+    )
+add_library(reference_point_setter_nodelet src/reference_point_setter.cpp src/reference_point_setter_nodelet.cpp)
+target_link_libraries(reference_point_setter_nodelet
+    ${OpenCV_LIBRARIES}
+    ${catkin_LIBRARIES}
+)
